@@ -1,0 +1,20 @@
+{
+    "name": "ebene7/php-cache",
+    "description": "E7 PHP Cache",
+    "homepage": "https://github.com/ebene7/php-cache",
+    "authors": [
+        {
+            "name": "Daniel Barty",
+            "email": "daniel@ebene7.com"
+        }
+    ],
+    "require": {
+        "psr/simple-cache": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {"E7\\": "src/E7"}
+    },
+    "autoload-dev": {
+        "psr-4": {"E7\\": "tests/E7"}
+    }
+}
