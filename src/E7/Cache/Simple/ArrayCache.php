@@ -24,7 +24,7 @@ class ArrayCache extends AbstractCache
     {
         $id = $this->getIdByKey($key);
         $this->cleanExpired($key);
-        return !empty($this->values[$id]) ? $this->values[$id] : $default;
+        return isset($this->values[$id]) ? $this->values[$id] : $default;
     }
 
     /**

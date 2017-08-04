@@ -63,7 +63,7 @@ abstract class CacheTestCase extends \PHPUnit_Framework_TestCase
 
         // test has expected true
         $this->assertTrue($cache->has($cacheKey));
-        
+
         // test get, expect the given $testValue
         $this->assertEquals($testValue, $cache->get($cacheKey));
 
@@ -83,6 +83,25 @@ abstract class CacheTestCase extends \PHPUnit_Framework_TestCase
 
         // test for default value
         $this->assertEquals($defaultValue, $cache->get($cacheKey, $defaultValue));
+    }
+
+    public function testSetAndGetWithEmptyArray()
+    {
+        $cache = $this->createObject();
+        $cacheKey = 'test-cache-key-' . time();
+
+        // test for empty value
+        $this->assertNull($cache->get($cacheKey));
+
+        // set empty array
+        $cache->set($cacheKey, []);
+
+        // test for array value
+        $this->assertTrue($cache->has($cacheKey));
+
+        $value = $cache->get($cacheKey);
+        $this->assertInternalType('array', $value);
+        $this->assertCount(0, $value);
     }
 
     /**
